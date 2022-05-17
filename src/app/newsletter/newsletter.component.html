@@ -1,0 +1,23 @@
+<p>newsletter works!</p>
+<form action="" #emailFrm="ngForm" novalidate>
+    <input #email="ngModel" ngModel type="text" placeholder="E-mail" name="email" required email
+        pattern="[A-Za-z0-9._%-]+@[A-Za-z0-9._%-]+\.[a-z]{2,3}">
+    <div class="text-danger" *ngIf="!email.valid && (email.dirty || email.touched)">
+        <!-- <span *ngIf="email.dirty">you have to put a valid E-mail address</span>
+        <span *ngIf="email.touched">Email is requiered</span> -->
+        <span *ngIf="email.errors?.['required']">Email is required</span>
+        <span *ngIf="email.errors?.['pattern']">is not an email</span>
+    </div>
+    <input type="text" placeholder="Name" #fullName="ngModel" ngModel required pattern="[A-Za-z]{5,20}">
+  
+        <div *ngIf="!fullName.valid && (fullName.dirty || fullName.touched)">
+            <span *ngIf="fullName.errors?.['required']">name is required</span>
+            <span *ngIf="fullName.errors?.['pattern']">is not an email</span>
+        </div>
+    
+
+    <span *ngIf="fullName.errors?.['pattern']"></span>
+    <button type="submit" class="btn btn-primary" [disabled]="!emailFrm.valid">Submit</button>
+
+</form>
+<!-- <button #Answer1 (click)=""></button> -->

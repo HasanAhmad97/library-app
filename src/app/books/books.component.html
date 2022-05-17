@@ -1,0 +1,12 @@
+<h1 class="bg-danger card">Libary</h1>
+
+<div *ngFor="let book of books_2">
+  <div *ngIf="book.author" [innerText]="book.title"></div>
+    <!-- <p>id:{{book.id}}</p>
+    <p>Title:{{book.title}}</p>
+    <p>Author:{{book.author}}</p>
+    <p>publish_date:{{book.publish_date}}</p>
+    <p>Pages:{{book.pages}}</p>
+    <p>Edition: {{book.edition}}</p> -->
+  </div>
+  <button (click)="addTestBook()" class="btn btn-primary">Add New Book</button>
